@@ -9,7 +9,7 @@
 	
 	<select id="LoadByKwd" parameterType="String" resultType="CarInfoDTO">
 		SELECT *
-		FROM Vehicle_Information
+		FROM Photo
 		WHERE vehicle_no LIKE #{kwd}		
 	</select>
 </mapper>
