@@ -52,21 +52,7 @@
 	
 	
 	
-	<h1>Public Data</h1>
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Address</th>
-			<th>Tel</th>
-		</tr>
-		<c:forEach var="data" items="${datalist}">
-			<tr>
-				<td><c:out value="${data.registYy}"/></td>
-			</tr>
-		</c:forEach>
-	</table>
-
+${xml }
 
 
 
