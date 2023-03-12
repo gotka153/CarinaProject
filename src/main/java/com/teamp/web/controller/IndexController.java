@@ -1,4 +1,4 @@
-package com.teamp.board.controller;
+package com.teamp.web.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;

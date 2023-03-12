@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="/img/CarinaLogoheader.png">
 <meta charset="utf-8" />

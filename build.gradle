@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+	runtimeOnly 'mysql:mysql-connector-java:8.0.25'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation	'javax.servlet:jstl:1.2'//jsp
@@ -29,7 +30,10 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation group: 'org.jdom', name: 'jdom2', version: '2.0.6.1'//xml파싱
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
+	implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.8'					//DB
+	// 이메일 보내기 https://mvnrepository.com/artifact/org.apache.commons/commons-email
+	//			implementation 'org.apache.commons:commons-email:1.5'
 }
 
 tasks.named('test') {

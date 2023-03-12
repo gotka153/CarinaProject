@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Heroic Features - Start Bootstrap Template</title>
+<title>Regist</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="/css/favicon.ico" />
 <!-- Bootstrap icons-->
@@ -52,7 +51,75 @@
 	
 	
 	
-${xml }
+	
+		<form action="/regist" method="POST">
+<!-- 		<label for="vehicle_no">vehicle_no:</label> -->
+<!-- 		<input type="number" id="vehicle_no" name="vehicle_no" value="1" required><br><br> -->
+		
+<!-- 		<label for="b_no">b_no:</label> -->
+<!-- 		<input type="number" id="b_no" name="b_no" value="1" required><br><br> -->
+		
+		<label for="license_number">License Number:</label>
+		<input type="text" id="license_number" name="license_number" value="12가1212" required><br><br>
+		
+		<label for="domestic_import">Domestic Import:</label>
+		<input type="text" id="domestic_import" name="domestic_import" value="국산" required><br><br>
+		
+		<label for="manufacturer">Manufacturer:</label>
+		<input type="text" id="manufacturer" name="manufacturer" value="기아" required><br><br>
+		
+		<label for="vehicle_type">Vehicle Type:</label>
+		<input type="text" id="vehicle_type" name="vehicle_type" value="대형" required><br><br>
+		
+		<label for="model_name">Model Name:</label>
+		<input type="text" id="model_name" name="model_name" value="k9" required><br><br>
+		
+		<label for="year_of_manufacture">Year of Manufacture:</label>
+		<input type="text" id="year_of_manufacture" name="year_of_manufacture" value="2022" required><br><br>
+		
+		<label for="mileage">Mileage:</label>
+		<input type="number" id="mileage" name="mileage" value="1" required><br><br>
+		
+		<label for="fuel_type">Fuel Type:</label>
+		<input type="text" id="fuel_type" name="fuel_type" value="디젤" required><br><br>
+		
+		<label for="transmission_type">Transmission Type:</label>
+		<input type="text" id="transmission_type" name="transmission_type" value="오토" required><br><br>
+		
+		<label for="displacement">Displacement:</label>
+		<input type="number" id="displacement" name="displacement" value="1" required><br><br>
+		
+		<label for="passenger_capacity">Passenger Capacity:</label>
+		<input type="number" id="passenger_capacity" name="passenger_capacity" value="5" required><br><br>
+		
+		<label for="wheel_type">Wheel Type:</label>
+		<input type="text" id="wheel_type" name="wheel_type" value="후륜" required><br><br>
+		
+		<label for="color">Color:</label>
+		<input type="text" id="color" name="color" value="검정" required><br><br>
+		
+		<label for="price">Price:</label>
+		<input type="number" id="price" name="price" value="29000000" required><br><br>
+		
+		<label for="accident_status">Accident Status:</label>
+		<input type="text" id="accident_status" name="accident_status" value="무사고" required><br><br>
+		
+		<label for="transaction_date">Transaction Date:</label>
+		<input type="text" id="transaction_date" name="transaction_date" value="2023-03-09" required><br><br>
+		
+		<label for="transaction_location">Transaction Location:</label>
+		<input type="text" id="transaction_location" name="transaction_location" value="서울" required><br><br>
+		
+		<button type="submit">regist</button>
+		
+		${error}
+	</form>
+	
+	
+	
+	
+	
+
 
 
 
