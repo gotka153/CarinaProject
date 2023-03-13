@@ -41,7 +41,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="#!">내차 사러가기</a></li>
+						href="/searchpage">내차 사러가기</a></li>
 					<li class="nav-item"><a class="nav-link" href="#!">내차 팔러가기</a></li>
 					<li class="nav-item"><a class="nav-link" href="#!">허위 매물
 							신고</a></li>
