@@ -18,16 +18,23 @@
 //console.log(numbers)
 //numbers.forEach(e => console.log(e));
 
-
-function myScript(){
-var you = document.getElementById("selcettype");
-var val = you.options[you.selectedIndex].value;
-console.log(val);
-var model = "m4";
-var get = "model_name="+model;
-fetch("/searchbyfilter?"+get)
-	.then(res => res.json())
-	.then(data => data.forEach(e => console.log(JSON.stringify(e))));
+//JS 비동기 통신
+function filter_submit() {
+	const place = document.getElementById('place');
+	place.innerHTML = ``;
+	const form = document.getElementById('filter_form');
+	formData = new FormData(form);
+	fetch('/searchbyfilter', { method: 'post', body: formData })
+		.then(res => res.json())
+		.then(res => res.forEach((e) => {
+			place.insertAdjacentHTML('beforeend', `<label class="thumb_img">${e.thumbnail}</label>
+			<ul class="thumb_text">
+				<li>${e.model_name}</li>
+				<li>${e.mileage}</li>
+				<li>${e.year_of_manufacture}</li>
+				<li>${e.price}</li>
+			</ul>`	)
+		}));
 }
 
 

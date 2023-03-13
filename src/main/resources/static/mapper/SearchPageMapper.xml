@@ -13,9 +13,23 @@
 		WHERE vehicle_no LIKE #{kwd}		
 	</select>
 	
-	<select id="LoadByfilter" parameterType="String" resultType="SearchPageDTO">
+	<select id="LoadByfilter" parameterType="HashMap" resultType="SearchPageDTO">
 		SELECT *
 		FROM SearchPageView
-		WHERE model_name LIKE #{filter}		
+		<if test='type != null'>
+		WHERE vehicle_type = #{type}
+		</if>
+		<if test='fuel != null'>
+		AND fuel_type = #{fuel}
+		</if>
+		<if test='mission != null'>
+		AND transmission_type = #{mission}
+		</if>
+		<if test='wheeldrt != null'>
+		AND wheel_type = #{wheeldrt}
+		</if>		
+		<if test='psngcap != null'>
+		AND passenger_capacity = #{psngcap }
+		</if>
 	</select>
 </mapper>

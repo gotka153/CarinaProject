@@ -1,7 +1,7 @@
 package com.teamp.web.dao;
 
 import java.util.List;
-
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -16,5 +16,5 @@ public interface SearchPageDAO {
 
 	public List<SearchPageDTO> LoadByKwd(String kwd);
 
-	public List<SearchPageDTO> LoadByfilter(String filter);
+	public List<SearchPageDTO> LoadByfilter(Map map);
 }

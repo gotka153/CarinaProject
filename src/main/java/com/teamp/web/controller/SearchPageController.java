@@ -1,7 +1,9 @@
 package com.teamp.web.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,7 +28,6 @@ public class SearchPageController {
 		ModelAndView mv = new ModelAndView("searchPage");
 		List<SearchPageDTO> list = new ArrayList<SearchPageDTO>();
 		list = searchpageservice.LoadAll();
-		
 		mv.addObject("list", list);
 		return mv;
 	}
@@ -41,24 +42,24 @@ public class SearchPageController {
 		return list;
 	}
 	
-//	@ResponseBody
-//	@GetMapping("/searchbyfilter")
-//	public List<SearchPageDTO> By_Filter() {	
-//		List<SearchPageDTO> list = new ArrayList<SearchPageDTO>();
-//		list = searchpageservice.LoadAll();
-//		return list;		
-//	}
-	
 	@ResponseBody
-	@GetMapping("/searchbyfilter")
-	public List<SearchPageDTO> By_Filter_Post(HttpServletRequest request) {	
-		String filter = request.getParameter("model_name");
+	@PostMapping("/searchbyfilter")
+	public List<SearchPageDTO> By_Filter_Post(HttpServletRequest request) {
+		Map<String , String> map = new HashMap<String , String>();
+		String type = request.getParameter("type");
+		map.put("type", type);
+		String fuel = request.getParameter("fuel");
+		map.put("fuel", fuel);
+		String mission = request.getParameter("mission");
+		map.put("mission", mission);
+		String wheeldrt = request.getParameter("wheeldrt");
+		map.put("wheeldrt", wheeldrt);
+		String psngcap = request.getParameter("psngcap");
+		map.put("psngcap", psngcap);
+		System.out.println(type + fuel + mission + wheeldrt + psngcap);
 		List<SearchPageDTO> list = new ArrayList<SearchPageDTO>();
-		if(filter == null) {
-			list = searchpageservice.LoadAll();
-		} else {
-			list = searchpageservice.LoadByfilter(filter);
-			}
+		list = searchpageservice.LoadByfilter(map);
+		System.out.println(list);
 		return list;		
 	}
 

@@ -1,6 +1,7 @@
 package com.teamp.web.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,8 @@ public class SearchPageService {
 		return searchpagedao.LoadByKwd(kwd);
 	}
 
-	public List<SearchPageDTO> LoadByfilter(String filter) {
+	public List<SearchPageDTO> LoadByfilter(Map map) {
 		// TODO Auto-generated method stub
-		return searchpagedao.LoadByfilter(filter);
+		return searchpagedao.LoadByfilter(map);
 	}
-	
 }

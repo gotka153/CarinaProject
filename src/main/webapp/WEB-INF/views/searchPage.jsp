@@ -37,21 +37,20 @@ $(function(){
 				$("#place").html("");
 				for(var i=0 ; i<data.length; i++){
 					 	var thumbnail = data[i].thumbnail;
-						var model = thumbnail.split("/");
-						var model2 = model[6].split("_thumbnail" , 1);
-						var format = `
-							<li class="b1">
-								<li class="img" id="img">
-								`+thumbnail+`
-								</li>
-								<ul class="bul">
-								<li>`+model2+`</li>
-								<li>주행거리</li>
-								<li>연식</li>
-								<li>가격</li>				
-								</ul>
-							</li>				
-							`
+						var model_name = data[i].model_name;
+						var mileage = data[i].mileage;
+						var year = data[i].year_of_manufacture;
+						var price = data[i].price;
+						var format = `							
+							<label class="thumb_img">`+thumbnail+`</label>
+							<ul class="thumb_text">
+							<li>`+model_name+`</li>
+							<li>`+mileage+`</li>
+							<li>`+year+`</li>
+							<li>`+price+`</li>
+							</ul>
+							`												
+
 				$("#place").append(format);
 					}								
 			})
@@ -77,10 +76,12 @@ body {
 	text-align: center;
 }
 
-.b1 {
-	width: 370px;
-	height: 100px;
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 	float: left;
+	text-align: left;
 }
 
 #place {
@@ -89,27 +90,23 @@ body {
 	background-color: #ccc;
 }
 
-.img {
+.thumb_img {
 	float: left;
 	width: 135px;
 	height: 100px;
 }
 
-.img>img {
+.thumb_img>img {
 	width: inherit;
 	height: inherit;
 }
 
-.bul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	width: 235px;
-	height: 100px;
-	float: left;
+.thumb_text {
+	width: 198px;
+	height: 100px;	
 }
 
-.bul>li {
+.thumb_text>li {
 	width: inherit;
 	height: 25px;
 	font-size: small;
@@ -117,31 +114,70 @@ body {
 </style>
 </head>
 <body>
-	검색페이지
-	<br> 검색어는?
 	<input id="search" type="text">
 	<button id="enter">검색하기</button>
-	<%-- 	<c:forEach items="${list }" var="i"> --%>
-	<%-- 		<p>${i.vehicle_no }</p> --%>
-	<%-- 	</c:forEach> --%>
-	<li id="place"></li>
+	<div id="place">
+		<c:forEach items="${list }" var="i">
+			<label class="thumb_img">${i.thumbnail }</label>
+			<ul class="thumb_text">
+				<li>${i.model_name }</li>
+				<li>${i.mileage }</li>
+				<li>${i.year_of_manufacture }</li>
+				<li>${i.price }</li>
+			</ul>
+		</c:forEach>
+	</div>
+	<form name="filter_form" id="filter_form">
 	<ul class="filter">
-
-		<li class="filter type">타입 <select id="selcettype" onchange="myScript()">
-				<option value="light">경형</option>
-				<option value="small">소형</option>
-				<option value="ligthmiddle">준중형</option>
-				<option value="middle">중형</option>
-				<option value="large">대형</option>
-		</select>
+		<li class="filter type">타입 
+			<select id="selcettype" name="type">			
+					<option value="경차">경형</option>
+					<option value="소형">소형</option>
+					<option selected value="준중형">준중형</option>
+					<option value="중형">중형</option>
+					<option value="대형">대형</option>
+			</select>
 		</li>
-		<li class="filter model">모델명<input type="text"></li>
-		<li class="filter fuel">연료타입</li>
-		<li class="filter mission">변속기</li>
-		<li class="filter wheeldrt">전륜후륜</li>
-		<li class="filter psngcap">승차정원</li>
+		<li class="filter fuel">연료타입
+				<select name="fuel">			
+					<option selected value="휘발유">휘발유</option>
+					<option value="고급유">고급유</option>
+					<option value="경유">경유</option>
+					<option value="하이브리드">하이브리드</option>
+					<option value="전기">전기</option>
+					<option value="수소">수소</option>
+				</select>
+		</li>
+		<li class="filter mission">변속기
+			<select name="mission">			
+					<option selected value="자동">자동</option>
+					<option value="수동">수동</option>
+			</select>
+		</li>
+		<li class="filter wheeldrt">전륜후륜
+			<select name="wheeldrt">			
+					<option selected value="전륜">전륜</option>
+					<option value="후륜">후륜</option>
+					<option value="사륜">사륜</option>
+			</select>
+		</li>
+		<li class="filter psngcap">승차정원
+			<select name="psngcap">			
+					<option value="2">2인</option>
+					<option selected value="5">5인</option>
+					<option value="7">7인</option>
+					<option value="9">9인</option>
+					<option value="11">11인</option>
+					<option value="12">12인 이상</option>
+			</select>
+		</li>
 		<li class="filter cc">배기량</li>
 		<li class="filter color">색상</li>
+		</ul>
+	</form>
+	<button onclick="filter_submit()">찾기</button>
+	</body>
+	<script>
 
-	</ul>
-	<button id="but">sdf</button>
+	</script>
+	</html>
